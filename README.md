@@ -1,70 +1,46 @@
-# Getting Started with Create React App
+# The movie db api 
+**https://www.themoviedb.org/**
+영화 정보를 가지고 있는 API
+- 해당 사이트에서 API KEY 불러오기
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Axois 
 
-## Available Scripts
+- Axios 란 ?
+  브라우저, Node.js 를 위한 Promise API를 활용하는 HTTP 비동기 통신 라이브러리
+  ( 백엔드랑 프론트엔드랑 통신을 쉽게하기 위해 Ajax와 더불어 사용)
+  fetch() 와 다르게 따로 설치를 해야 사용 할 수 있음 
+  -> 현업에서는 Axois 를 더 많이 사용함
+    더 많은 기능 제공
+- **npm i axios --save**
+- **axios.{get,post}(API주소)**
+- Axios 를 인스턴스화 하는 이유 = 중복되는 부분을 계속 입력하지 않아도 되기 때문에
+  1. Axios 생성할 폴더 파일 생성
+  2. axios.js -> baseURL 과 API_KEY, 외의 옵션 등 기본 설정들을 인스턴스화
+  3. request.js -> 상세 요청 값 인스턴스 화
 
-In the project directory, you can run:
+# 전체 구조 
+Navigation Bar
+Banner
+Category
+Row
+Row
+Footer
+-> src/components 파일에 생성
 
-### `npm start`
+# Styled Components 
+-> Styled Components 란 Css-in-js 라고 하는 JS 파일 안에서 CSS를 처리 할 수 있게 해주는 대표적인 라이브러리
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+style 들을 컴포넌트 화 시켜서 사용함
+=> props 를 사용하여 조건부 스타일링을 적용 시킬 수 있음
+=> Extending (상속) 도 사용 할 수 있음
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- 설치
+npm i styled-components --save ||
+yarn add style-components 
 
-### `npm test`
+## Naviagion '/components/Nav.js'
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- 스크롤 이벤트 구현
+  ( useState, useEffect, window.scrollY)
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
