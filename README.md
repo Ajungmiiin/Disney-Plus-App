@@ -124,3 +124,25 @@ ReactRouter의 가장 강력한 기능 중 하나, 복잡한 레이아웃 코드
 
 ## URLSearchParams
 URL의 쿼리 문자열을 대상으로 작업 할 수 있는 유틸리티 메서드
+
+## useDebounce ( custum Hook ) 
+사용자가 미리 결정된 시간 동안 타이핑을 멈출 때 까지 keyup 이벤트의 처리를 지연시킴 -> API 호출 수가 적어짐 -> 성능 개선
+
+## useParams()
+useParams 훅를 이용하여 Params를 가져 올 수 있다.
+
+## 모달 창 외부 클릭 시, 모달 창 닫기 기능
+1. 어디를 클릭하는 지 구분
+2. 모달 창 바깥을 클릭하면 Callback 함수를 호출하는 Event 등록
+3. Callback 함수 안에서 모달 닫아주기
+
+=> useRef()
+  특정 DOM을 선택할 때 사용하는 React Hook
+  -> Javascript 에서는 getElementById, qureySelector 등으로 DOM을 선택
+    **but** 리액트 에서는 ref 라는 것을 이용하여 DOM을 선택
+- useRef() 사용법 -> useRef 를 이용하여 Ref 객체를 만들고, 이 객체를 특정 DOM에 ref값으로 설정함, 이렇게 되면 Ref 객체의 current값이 특정 DOM를 가리키게 됨
+
+**DOM을 직접 선택해야 할 경우들**
+1. 엘리먼트 크기를 가져와야 할 때
+2. 스크롤바 위치를 가져와야 할 때
+3. 엘리먼트에 포커스를 설정 해줘야 할 때 등등

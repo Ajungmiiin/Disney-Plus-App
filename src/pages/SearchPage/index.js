@@ -5,15 +5,19 @@ import { useLocation, useNavigate } from 'react-router-dom'
 import './SearchPage.css'
 import { styled } from 'styled-components'
 import { useDebounce } from '../../hooks/useDebounce'
+
 const SearchPage = () => {
   const navigate = useNavigate()
   const [searchResults, setSearchResults] = useState([])
   const useQurey = () => {
     return new URLSearchParams(useLocation().search);
+    // 쿼리 문자열
   }
   let qurey = useQurey();
   const searchTerm = qurey.get("q")
+  // 쿼리에 "q" 부분을 가져온다 (Input의 e.target.value)
   const debouncedSearchTerm = useDebounce(searchTerm, 500)
+  // 커스텀 훅 호출
 
   useEffect(() => {
     if(debouncedSearchTerm) {
@@ -26,7 +30,6 @@ const SearchPage = () => {
 
       const res = await axios.get(`/search/multi?include_adult=false&query=${searchTerm}`)
       setSearchResults(res.data.results)
-      console.log(res)
 
     } catch (error) {
       console.log(error)

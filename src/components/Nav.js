@@ -41,7 +41,11 @@ function Nav() {
       </Logo>
 
       {pathname === "/" ? 
-        (<Login>Login</Login>) : 
+        (<Login 
+          onClick={() =>{window.location.href = "/main"}}
+        >
+          Login
+        </Login>) : 
         <Input 
         value={searchValue}
         onChange={handleChange}
@@ -74,11 +78,22 @@ const Input = styled.input`
   position: fixed;
   left: 50%;
   transform: translate(-50%, 0);
-  background-color: rgba(0,0,0, 0.582);
+  background-color: rgba(255, 255, 255, .5);
   border-radius: 5px;
   color: white;
-  padding: 5px;
+  padding: 10px 0;
   border: none;
+  outline:1px solid #ddd;
+  color: black;
+  font-size: 18px;
+  letter-spacing: 0.04em;
+  text-align: center;
+
+  @media screen and (max-width: 768px) {
+    transform: translate(0, 0);
+    right: 30px;
+    top: 20px;
+  }
 `
 
 const NavWrapper = styled.nav`
