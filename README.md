@@ -42,5 +42,85 @@ yarn add style-components
 
 - 스크롤 이벤트 구현
   ( useState, useEffect, window.scrollY)
+  => return ( removeEventListener ) 를 통해 이벤트 리스너를 제거해줌 
+    = 컴포넌트를 사용하지 않을 때 이벤트가 쌓이지 않도록
+
+## Banner '/components/Banner.js
+
+- 페이지에 접속 했을 때 배너 이미지가 바뀌게끔 
+
+## 동기와 비동기 (async & await)
+  axios 로 불러온 데이터를 바로 콘솔에 찍어봤더니 Promise 객체가 전달 됨
+  => 비동기 작업으로 실행 됐기 때문에 ( 요청을 한 후 res가 오기 전에 다른 작업을 함)
+   이를 해결 하기 위해선 아직 res가 오지 않은 상태가 아닌 **결과값을 받은 이후**에 값을 처리 해 주면 됨
+
+  1. 요청을 한 다음 .then() 메서드를 이용하는 방법
+    .then() -> req 가 다 처리 된 후, 응답을 받았을 때 then 안의 코드들을 실행함
+  2. Async , Await 
+
+## 배너에 랜덤으로 영화 정보 나타내기
+-> Math.floor() -> 소수점을 없애줌, 정수로 변환
+-> Math.random() -> 0~1 사이의 수를 반환
+
+  [Math.floor( Math.random() * res.data.results.length )].id 
+  를 통해 처음으로 받아온 영화 리스트 중, 한 개의 영화 id 를 추출하여 사용
+
+## Row.js 
+-> js 로 슬라이더 구현
+  document.getElementById(id).scrollLeft += window.innerWidth - 80 &&
+  document.getELementById(id).scrollLeft -= window.innerWidth + 80
+  => document.getElementById(id) -> 해당 요소 
+  => scrollLeft -> 요소의 콘텐츠가 왼쪼 가장자리에서 스크롤되는 픽셀 수
+  => innerWidth -> 뷰포트 전체의 너비값
+
+## Modal 창 구현
+-> 해당 영화를 클릭하면 모달창이 뜨는 기능 
+  ModalOpen, MovieSelected 라는 state를 만들어, 영화를 클릭하게 되면
+  ModalOpen 을 true 로 바꿔 Row.js return 부분에 조건부 렌더링을 하게 함
+  MovieSelected 에는 클릭한 해당 영화의 정보들을 객체 데이터로 담아서 
+  **MovieModal.js** 에 props 로 모두 전달
+  
+## React Router Dom
+웹 앱 에서 동적 라우팅 구현 가능, 라우팅이 실행 중인 앱 외부의 구성에서 처리되는 기존 라우팅 아키텍쳐와 달리 React Router Dom 은 앱 및 플랫폼의 요구 사항에 따라 컴포넌트 기반 라우팅을 용이하게 함
+
+? Router
+라우터의 정의로는 컴퓨터 네트워크에서 데이터를 송수신 하는 장치라고 함
+
+=> SPA 
+리액트는 SPA 이기 떄문에 하나의 index.html 템플릿을 가지고 있음, 해당 템플릿에 자바스크립트를 이용하여 다른 컴포넌트들을 index.html 템플릿에 넣음으로 페이지를 변경함,
+이를 렌더링하는 것에 도움을 주는 게 React Router Dom 라이브러리
+
+web -> Our React App => index.js<->Router-> Component 1, 2, 3
+
+### 설치
+npm i react-router-dom
+
+### 기본 설정
+react-router-dom 에서 가져온 ReowserRouter를 가져와 루트 구성요소(APP)를 감싸줌
+
+**BrowserRouter**
+HTML HistoryAPI, replaceState를 사용하여 UI를 URL과 동기화 된 상태로 유지해줌
+
+**Routes**
+앱에서 생성될 모든 개별 경로에 대한 컨테이너/상위 역할을 함
+Route로 생성된 자식 컴포넌트 중 매칭되는 첫번째 Route를 렌더링 해줌
+
+**Route**
+단일 경로를 만드는 데 사용, 두 가지 속성을 취함
+
+1. path -> 원하는 컴포넌트의 URL 경로를 지정, 경로 이름은 원하는대로 정할 수 있음
+경로 이름이 (/) 백슬래시인 컴포넌트는 앱이 처음 로드 될 때 마다 먼저 렌더링 됨,
+
+2. element-> 경로에 맞게 렌더링 되어야 하는 컴포넌트를 지정함
+
+**<Link> 를 이용하여 경로 이동하기**
+구성요소는 HTML 의 앵커 요소와 유사, to 속성을 통해 이동할 경로를 지정함
+앱 구성 요소에 나열된 경로 이름은 생성했기 떄문에, 링크를 클릭하면 경로를 살펴보고 해당 경로 이름으로 구성 요소를 렌더링 하게 됨
 
 
+## 중첩 라우팅
+ReactRouter의 가장 강력한 기능 중 하나, 복잡한 레이아웃 코드를 어지럽힐 필요가 없다
+대부분의 레이아웃은 URL의 세그먼트에 연결되며, React Router는 이를 완전히 수용함
+
+## URLSearchParams
+URL의 쿼리 문자열을 대상으로 작업 할 수 있는 유틸리티 메서드
