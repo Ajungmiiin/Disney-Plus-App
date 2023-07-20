@@ -1,0 +1,183 @@
+*{
+  box-sizing: border-box;
+}
+
+.wrapper {
+  padding-top: 400px;
+  text-align: center;
+  position: relative;
+}
+
+.wrapper .backdrop {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 820px;
+  z-index: -999;
+  opacity: .7;
+}
+
+.wrapper > .logo {
+  display: block;
+  width: 100%;
+  height: 100px;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.wrapper > h1 {
+  width: 100%;
+  margin: 0 auto;
+  font-size: 36px;
+  margin-bottom: 50px;
+}
+
+.wrapper > span {
+  font-size: 22px;
+  margin-bottom: 16px;
+  display: inline-block;
+}
+
+.wrapper > form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+
+.wrapper > form > input {
+  border-radius: 3px 0 0 3px;
+  font-size: 17px;
+  padding-left: 20px;
+  width: 40%;
+  height: 46px;
+  border: none;
+  background-color: #31343E;
+  color: white;
+  outline: none;
+}
+
+.wrapper > form > button {
+  border-radius: 0 3px 3px 0;
+  font-size: 18px;
+  width: 15%;
+  height: 46px;
+  border: none;
+  background-color: #0063E5;
+  color: white;
+  font-weight: 700;
+  outline: none;
+  cursor: pointer;
+  transition: opacity .2s
+}
+
+.wrapper > form > button:hover {
+  opacity: .9;
+}
+
+.wrapper > .information {
+  color: #ddd;
+  font-size: 14px;
+}
+
+.wrapper > .information > p {
+  margin: 5px 0;
+}
+
+.wrapper > section > .info-list {
+  padding: 45px 20px;
+  list-style: none;
+  display: flex;
+  margin: 0;
+}
+
+.wrapper > section > .info-list > li {
+  padding: 15px;
+  position: relative;
+  width: 25%;
+}
+
+.wrapper > section > .info-list > li::after {
+  content: "";
+  display: block;
+  width: 1px;
+  height: 80px;
+  background-color: white;
+  position: absolute;
+  right: 0;
+  bottom: 50%;
+  transform: translateY(50%);
+}
+
+.wrapper > section > .info-list > li:last-child::after {
+  display: none;
+}
+
+.wrapper > section > .info-list > li > h3 {
+  font-size: 17px;
+}
+
+.wrapper > section > .info-list > li > strong {
+  font-size: 14px;
+  color: #ddd;
+}
+
+@media screen and (max-width: 768px) {
+
+  .wrapper > .backdrop {
+    width: 100%;
+    height: 850px;
+  }
+
+  .wrapper > h1 {
+    padding: 0 10px;
+    font-size: 36px;
+    margin-bottom: 20px;
+  }
+
+  .wrapper > span {
+    font-size: 18px;
+  }
+
+  .wrapper > form {
+    padding: 0 10px;
+    flex-direction: column;
+    margin-bottom: 20spx;
+  }
+
+  .wrapper > form > input {
+    width: 100%;
+    margin-bottom: 5px;
+  }
+
+  .wrapper > form > button {
+    width: 100%;
+  }
+
+  .wrapper > .information {
+    font-size: 12px;
+  }
+
+  .wrapper section > .info-list {
+    flex-direction: column;
+    padding: 15px 20px;
+  }
+
+  .wrapper section > .info-list > .info {
+    width: 100%;
+    text-align: center;
+    padding: 20px 0
+  }
+
+  .wrapper section > .info-list > .info::after {
+    height: 1px;
+    width: 100%;
+    bottom: 0;
+    transform: translateY(0);
+  }
+
+  .wrapper > section > .info-list > li > h3 {
+    margin: 0 0 10px 0;
+  }
+}

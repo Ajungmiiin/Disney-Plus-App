@@ -75,16 +75,17 @@ const Login = styled.a`
 `
 
 const Input = styled.input`
+  width: 500px;
   position: fixed;
-  left: 50%;
-  transform: translate(-50%, 0);
-  background-color: rgba(255, 255, 255, .5);
-  border-radius: 5px;
+  right: 50%;
+  transform: translate(50%, 0);
+  background-color: rgba(0, 0, 0, .4);
   color: white;
   padding: 10px 0;
+  border-radius: 2px;
   border: none;
   outline:1px solid #ddd;
-  color: black;
+  color: white;
   font-size: 18px;
   letter-spacing: 0.04em;
   text-align: center;
@@ -92,7 +93,8 @@ const Input = styled.input`
   @media screen and (max-width: 768px) {
     transform: translate(0, 0);
     right: 30px;
-    top: 20px;
+    top: 20px;  
+    width: 200px;
   }
 `
 
@@ -110,6 +112,10 @@ const NavWrapper = styled.nav`
   letter-spacing: 16px;
   z-index: 3;
   transition : all .2s;
+
+  @media screen and (max-width: 768px) {
+    padding: 0 25px;
+  }
 `
 
 const Logo = styled.a`

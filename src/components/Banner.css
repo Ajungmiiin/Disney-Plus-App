@@ -54,6 +54,7 @@
     width: 100%;
     bottom: -40px;
     left: 0;
+    display: none;
   }
 }
 
